@@ -1,0 +1,38 @@
+/* PC > 1024 */
+@media (min-width: 64em) {
+}
+/* Tablet: width >= 740px and width < 1024px */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+/* mobile and tablet */
+@media (max-width: 63.9375em) {
+	/* Dịch vụ */
+	.service-box-icon {
+		font-size: 3rem;
+	}
+	.service-content-heading {
+		font-size: 1.4rem;
+		margin: 4px 0;
+	}
+	.service-content-subheading {
+		font-size: 1rem;
+		color: #a6a6a6;
+		margin: 6px 0;
+		line-height: 12px;
+	}
+	.name-description {
+		display: none;
+	}
+	.service_banner {
+		height: 140px;
+		width: auto;
+	}
+}
+/* Mobile: width < 740px */
+@media (max-width: 46.1875em) {
+	/* Dịch vụ */
+	.service-box-icon {
+		font-size: 3rem;
+		padding-left: 2rem;
+	}
+}
