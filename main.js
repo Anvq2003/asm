@@ -73,3 +73,18 @@ modalBodyElement.addEventListener('click', (e) => e.stopPropagation())
 function moreModal() {
    modalElement.classList.toggle('open')
 }
+
+// nav tablet moble
+var menu = $('.header__box-menu-js');
+var modalNav = $('.modal-nav-is');
+var navClose = $('.modal-nav-close-js');
+var containerNav = $('.header__nav-m-c');
+
+menu.addEventListener('click', showModalNav);
+navClose.addEventListener('click', showModalNav);
+modalNav.addEventListener('click', showModalNav);
+containerNav.addEventListener('click', (e) => e.stopPropagation());
+
+function showModalNav() {
+   modalNav.classList.toggle('open-header');
+}

@@ -1,11 +1,111 @@
 /* PC > 1024 */
 @media (min-width: 64em) {
+	.header__box-menu {
+		display: none;
+	}
+	.modal-nav {
+		display: none;
+	}
 }
 /* Tablet: width >= 740px and width < 1024px */
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
 }
 /* mobile and tablet */
 @media (max-width: 63.9375em) {
+	/* nav */
+	.header__nav,
+	.header__buy-box-user,
+	.header__buy-box-search {
+		display: none;
+	}
+	.header__box-logo {
+		text-align: center;
+	}
+	.modal-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 2;
+		display: none;
+	}
+	.modal-nav.open-header {
+		display: block;
+	}
+	.header__nav-m-c {
+		position: relative;
+		width: 256px;
+		height: 100%;
+		z-index: 2;
+		background-color: #f2f2f2;
+		animation: Hidefromleft 0.3s ease;
+	}
+	@keyframes Hidefromleft {
+		0% {
+			opacity: 0;
+			transform: translateX(-100%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	.modal-nav-close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 9px;
+	}
+	.modal-item-search {
+		display: flex;
+		background-color: #ebebeb;
+		padding: 5px 0;
+		border: 1px solid #777;
+		border-radius: 21px;
+		overflow: hidden;
+		margin: 16px 0;
+	}
+	.modal-nav-search-ip {
+		flex: 1;
+		border: none;
+		outline: none;
+		background-color: #ebebeb;
+		font-size: 1.3rem;
+		padding: 3px 12px 0;
+	}
+	.modal-nav-search-box-icon {
+		padding: 0 12px;
+	}
+	.modal-nav-icon {
+		font-size: 1.5rem;
+		color: #444;
+	}
+	.nav-list-m-c {
+		list-style: none;
+		padding: 0;
+		padding-top: 30px;
+		margin: 0;
+	}
+	.nav-item-m-c {
+		padding: 13px 16px;
+		border-bottom: 1px solid #e8e8e8;
+	}
+	.nav-item-m-c:hover {
+		background-color: #d5d5d5;
+	}
+	.nav-item-m-c:hover .nav-item-link-m-c {
+		color: var(--text-color);
+	}
+	.nav-item-link-m-c {
+		font-size: 1.5rem;
+		color: #777;
+		text-transform: uppercase;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
 	/* Dịch vụ */
 	.service-box-icon {
 		font-size: 3rem;
@@ -27,6 +127,10 @@
 		height: 140px;
 		width: auto;
 	}
+	/* Footter */
+	.footer__logo {
+		margin-bottom: 50px;
+	}
 }
 /* Mobile: width < 740px */
 @media (max-width: 46.1875em) {
@@ -34,5 +138,15 @@
 	.service-box-icon {
 		font-size: 3rem;
 		padding-left: 2rem;
+	}
+	.footer__logo,
+	.footer__info-email {
+		text-align: center;
+	}
+	.footer__info-heading {
+		margin: 0;
+	}
+	.footer__info-email-input {
+		margin: 0 auto;
 	}
 }
