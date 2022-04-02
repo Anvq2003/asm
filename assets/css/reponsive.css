@@ -149,4 +149,10 @@
 	.footer__info-email-input {
 		margin: 0 auto;
 	}
+	.footer__connection-container {
+		text-align: center;
+	}
+	.footer__connection-list {
+		justify-content: center;
+	}
 }
