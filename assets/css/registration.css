@@ -1,0 +1,158 @@
+.main {}
+
+.header-box {
+   background-color: rgba(0, 0, 0, 0.9);
+   margin-bottom: 20px;
+}
+.footer{
+   margin: 0;
+}
+/* begin */
+.registration {
+   margin-top: 90px;
+   position: relative;
+   height: 700px;
+}
+
+.registration__img {
+   background-image: url('../img/formLogin.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding-bottom: 700px;
+}
+
+.registration__content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.registration__content-center{
+   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.registration__content__left {
+   background-color: rgb(221 181 84 / 90%);
+   padding: 120px 44px;
+}
+
+.registration__content__left__heading {
+   font-size: 4rem;
+   text-transform: uppercase;
+   font-weight: 500;
+   color: #1c1c1c;
+   margin: 24px 0
+}
+
+.registration__content__left__text {
+   font-size: 1.4rem;
+   color: #333;
+   font-weight: 500;
+   line-height: 2.3rem;
+   margin: 1rem 0;
+}
+
+.registration__content__left__subtext {
+   font-size: 1.4rem;
+   color: #1c1c1c;
+   line-height: 2.4rem;
+   margin: 1rem 0;
+}
+
+.registration__content__right {
+   display: flex;
+   justify-content: center;
+   background: #fff;
+}
+
+.form {
+   min-height: 100px;
+   padding: 12px 24px 32px;
+   margin: 24px;
+   align-self: center;
+   width: 80%;
+}
+
+.form .heading {
+   font-size: 3rem;
+   text-align: center;
+   text-transform: capitalize;
+}
+
+.form .desc {
+   text-align: center;
+   color: #636d77;
+   font-size: 1.6rem;
+   font-weight: lighter;
+   line-height: 2.4rem;
+   margin-top: 16px;
+   font-weight: 300;
+}
+
+.form-group {
+   display: flex;
+   margin-bottom: 10px;
+   flex-direction: column;
+}
+
+.form-label,
+.form-message {
+   text-align: left;
+}
+
+.form-label {
+   font-weight: 700;
+   padding-bottom: 6px;
+   line-height: 1.8rem;
+   font-size: 1.4rem;
+}
+
+.form-control {
+   height: 40px;
+   padding: 8px 12px;
+   border: 1px solid #b3b3b3;
+   border-radius: 3px;
+   outline: none;
+   font-size: 1.4rem;
+}
+
+.form-control:hover {
+   border-color: var(--primary-color);
+}
+
+.form-group.invalid .form-control {
+   border-color: #f33a58;
+   background-color: rgb(243 58 88 / 10%);
+}
+
+.form-group.invalid .form-message {
+   color: #f33a58;
+}
+
+.form-message {
+   font-size: 1.4rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+    height: 16px;
+}
+
+.form-submit {
+   outline: none;
+   background-color: var(--primary-color);
+   margin-top: 12px;
+   padding: 12px 16px;
+   font-weight: 600;
+   color: #fff;
+   border: none;
+   width: 100%;
+   font-size: 14px;
+   border-radius: 8px;
+   cursor: pointer;
+}
+
+.form-submit:hover {
+   opacity: 0.8;
+}
+
+.spacer {
+   margin-top: 36px;
+}

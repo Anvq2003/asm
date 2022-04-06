@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<div class="main">
+	<div class="main" id="top">
 		<!-- nav tablet mobile -->
 		<div class="modal-nav modal-nav-is">
 			<div class="header__nav-m-c">
@@ -217,13 +217,14 @@
 							</div>
 						</div>
 
+						<!-- User -->
 						<div class="header__buy-box-user header__buy-box header__buy-box-js">
 							<i class="bolder-right buy-icon fa-solid fa-user"></i>
 						</div>
 
 						<!-- Cart -->
 						<div class="header__buy-cart--hover header__buy-box">
-							<i class="buy-icon fa-solid fa-cart-shopping"></i>
+							<i class="buy-icon  icon-cart-cart fa-solid fa-cart-shopping"></i>
 							<span class="header__buy-search--success__moles"></span>
 
 							<div class="header__buy-cart">
@@ -277,12 +278,18 @@
 										</button>
 									</div>
 								</div>
+								<!-- <div class="header__buy-cart-top">
+									<i class="header__buy-cart-top-icon fa-solid fa-caret-up"></i>
+								</div> -->
 							</div>
 						</div>
 					</div>
 				</nav>
 			</div>
 		</div>
+
+		<!-- toast message -->
+		<div id="toast"></div>
 
 		<!-- Begin content Nam-->
 		<div class="content grid wide">
@@ -324,7 +331,7 @@
 								<span class="price-del">
 									<del>20.217.000 <u>đ</u></del>
 								</span>
-								<span class="price-main"> 20.217.000 <u>đ</u> </span>
+								<span class="price-main"> 20,217,000 <u>đ</u> </span>
 							</div>
 						</div>
 					</div>
@@ -1534,7 +1541,7 @@
 
 					<p class="modal-body-text">
 						New here?
-						<a class="modal-body-subtext" href="#">
+						<a href="./registration.html" class="modal-body-subtext" href="#">
 							Create an Mona account
 						</a>
 					</p>
@@ -1548,7 +1555,8 @@
 	</div>
 </body>
 <!-- Link JavaScript -->
-<script src="./main.js"></script>
-<script src="./cart.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/slicer.js"></script>
+<script src="./assets/js/cart.js"></script>
 
 </html>

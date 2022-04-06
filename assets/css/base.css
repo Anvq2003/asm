@@ -71,8 +71,8 @@ html {
 	position: fixed;
 	bottom: 25px;
 	right: 25px;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	display: flex;
 	background-color: transparent;
 	border: 2px solid #333;
@@ -90,9 +90,11 @@ html {
 }
 .back-to-top-icon {
 	margin: auto;
-	font-size: 1.3rem;
+	font-size: 1.7rem;
 	color: var(--black-color);
 }
+
+
 /* Heading content */
 .content-heading {
 	text-align: center;
@@ -147,6 +149,8 @@ html {
 .row-products {
 	margin-bottom: 50px;
 }
+
+
 /* Sản phẩm */
 .product {
 	position: relative;
@@ -258,8 +262,8 @@ html {
 }
 .product__img-promotion {
 	position: absolute;
-	left: 0;
-	top: 20%;
+	left: 10px;
+   top: 30px;
 	background-color: var(--primary-color);
 	border-radius: 50%;
 	height: 45px;
@@ -307,6 +311,7 @@ html {
 	font-weight: bold;
 	padding: 0 2px;
 }
+
 /* Modal  base*/
 .modal {
 	position: fixed;
@@ -330,6 +335,7 @@ html {
 	overflow: hidden;
 	animation: hideTop 0.3s ease;
 }
+
 /* Modal login*/
 .modal-header {
 	background-color: #262626;
@@ -449,3 +455,4 @@ html {
 .modal-body-subtext {
 	color: var(--primary-color);
 }
+

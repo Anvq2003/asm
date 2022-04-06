@@ -1,3 +1,27 @@
+var $ = document.querySelector.bind(document);
+var $$ = document.querySelectorAll.bind(document);
+
+// hover
+const boxCart = $('.header__buy-cart--hover');
+const cart = $('.header__buy-cart');
+var x;
+
+function showHideCart() {
+   cart.classList.toggle('openCart');
+}
+
+boxCart.addEventListener('click', () => {
+   showHideCart()
+});
+
+cart.addEventListener('click', (e) => e.stopPropagation())
+
+function addCart() {
+   if (!cart.classList.value.includes('openCart')) {
+      cart.classList.add('openCart');
+   }
+}
+// Giỏ hàng
 function products(classProduct, img, name, price) {
    this.classProduct = classProduct;
    this.img = img;
@@ -6,12 +30,11 @@ function products(classProduct, img, name, price) {
    this.amount = 1;
 }
 
+var listProduct = [];
 var count = 0;
 var result = 0;
-var listProduct = [];
-var nf = Intl.NumberFormat('ja-JP');
-var cart = $('.header__buy-cart');
 var id = 0;
+var nf = Intl.NumberFormat('ja-JP');
 
 const btns = $$('.product__img-cart');
 const list = $('.header__buy-search--success')
@@ -20,7 +43,13 @@ const totalMoney = $('.header__success-total-price')
 
 btns.forEach((button) => {
    button.addEventListener('click', (e) => {
-      cart.style.display = 'block';
+      // showHideCart();
+      addCart()
+      // x = setTimeout(() => {
+      //    cart.addEventListener('mouseover', () => {
+      //       clearTimeout(x);
+      //    })
+      // }, 3000);
       count++;
       var btnItem = e.target.parentElement;
       var product = btnItem.parentElement.parentElement;
@@ -36,33 +65,28 @@ btns.forEach((button) => {
       $('.header__buy-search-heading').style.display = 'block';
 
       var check = true;
-      for (var i = 0; i < listProduct.length; i++) {
-         if (classProduct == listProduct[i].classProduct) check = false;
+      for (var i of listProduct) {
+         if (classProduct == i.classProduct) check = false;
       }
 
       if (check == true) {
          listProduct.push(new products(classProduct, img, name, price));
-      } else
-         list.innerHTML = '';
-      totalMoney.innerHTML = '';
-      loadList();
-      sum()
-      deleteItem()
+      }
+
+      resetCart();
    })
 })
 
 function sum() {
-   for (var i = 0; i < listProduct.length; i++) {
-      result += Number(listProduct[i].price.replace(/,/g, '') * listProduct[i].amount);
-   }
+   result = listProduct.reduce((a, b) => a + (Number(b.price.replace(/,/g, '')) * b.amount), 0)
    totalMoney.innerHTML = `${nf.format(result)} đ`
    result = 0;
 }
 
 function deleteItem() {
-   const delCarts = document.querySelectorAll('.success__product-close');
-   const minuss = document.querySelectorAll('.prices-amount-minus');
-   const adds = document.querySelectorAll('.prices-amount-add');
+   const delCarts = $$('.success__product-close');
+   const minuss = $$('.prices-amount-minus');
+   const adds = $$('.prices-amount-add');
 
    delCarts.forEach((button, index) => {
       var minus = minuss[index];
@@ -78,11 +102,7 @@ function deleteItem() {
             }
          }
          showCart(nameCart);
-         list.innerHTML = '';
-         totalMoney.innerHTML = '';
-         loadList();
-         sum()
-         deleteItem()
+         resetCart();
       }
 
       add.onclick = (e) => {
@@ -92,11 +112,7 @@ function deleteItem() {
                listProduct[i].amount += 1;
             }
          }
-         list.innerHTML = '';
-         totalMoney.innerHTML = '';
-         loadList();
-         sum()
-         deleteItem()
+         resetCart();
       }
 
       minus.onclick = (e) => {
@@ -106,14 +122,11 @@ function deleteItem() {
                listProduct[i].amount -= 1;
             }
          }
-         list.innerHTML = '';
-         totalMoney.innerHTML = '';
-         loadList();
-         sum()
-         deleteItem()
+         resetCart();
       }
    })
 }
+
 // Hàm hiển thị lại các nút giỏ hàng khi ẩn
 function showCart(name) {
    const product = $$('.product')
@@ -121,13 +134,12 @@ function showCart(name) {
       if (product[i].querySelector('.product__info-name').innerText === name) {
          product[i].querySelector('.product__img-cart').style.display = 'block';
          product[i].querySelector('.product__img__more-success').classList.remove('active');
-
       }
    }
 }
 
 function loadList() {
-   for (var i = listProduct.length - 1; i >= 0; i--) {
+   for (var i = (listProduct.length - 1); i >= 0; i--) {
       list.innerHTML += `
       <div class="${listProduct[i].classProduct}">
          <div class="success__product">
@@ -168,4 +180,68 @@ function loadList() {
    }
 }
 
+function resetCart() {
+   list.innerHTML = '';
+   totalMoney.innerHTML = '';
+   loadList();
+   sum()
+   deleteItem()
+}
+
+// // Toast message
+// function showSuccessToast() {
+//    toast({
+//       title: "Thành công !",
+//       message: "Bạn đã thêm sản phẩm vào giỏ hàng.",
+//       type: "success",
+//       duration: 3000
+//    });
+// }
+
+// // Toast function
+// function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+//    const main = document.getElementById("toast");
+//    if (main) {
+//       const toast = document.createElement("div");
+
+//       // Auto remove toast
+//       const autoRemoveId = setTimeout(function () {
+//          main.removeChild(toast);
+//       }, duration + 1000);
+
+//       // Remove toast when clicked
+//       toast.onclick = function (e) {
+//          if (e.target.closest(".toast__close")) {
+//             main.removeChild(toast);
+//             clearTimeout(autoRemoveId);
+//          }
+//       };
+
+//       const icons = {
+//          success: "fas fa-check-circle",
+//          info: "fas fa-info-circle",
+//          warning: "fas fa-exclamation-circle",
+//          error: "fas fa-exclamation-circle"
+//       };
+//       const icon = icons[type];
+//       const delay = (duration / 1000).toFixed(2);
+
+//       toast.classList.add("toast", `toast--${type}`);
+//       toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+//       toast.innerHTML = `
+//                      <div class="toast__icon">
+//                          <i class="${icon}"></i>
+//                      </div>
+//                      <div class="toast__body">
+//                          <h3 class="toast__title">${title}</h3>
+//                          <p class="toast__msg">${message}</p>
+//                      </div>
+//                      <div class="toast__close">
+//                          <i class="fas fa-times"></i>
+//                      </div>
+//                  `;
+//       main.appendChild(toast);
+//    }
+// }
 
