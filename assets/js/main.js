@@ -18,14 +18,15 @@ function nav() {
 
 
 // modal user
-var userElement = $('.header__buy-box-js');
-var modalElement = $('.modal-js');
-var modalBodyElement = $('.modal__container-js');
-var closeElement = $('.modal-header-close-js');
+const userElement = $('.header__buy-box-js');
+const modalElement = $('.modal-js');
+const modalBodyElement = $('.modal__container-js');
+const closeElement = $('.modal-header-close-js');
 
 userElement.addEventListener('click', moreModal)
 modalElement.addEventListener('click', moreModal)
 closeElement.addEventListener('click', moreModal)
+
 modalBodyElement.addEventListener('click', (e) => e.stopPropagation())
 
 function moreModal() {
@@ -46,10 +47,10 @@ function backToTop() {
 }
 
 // nav tablet mobile
-var menu = $('.header__box-menu-js');
-var modalNav = $('.modal-nav-is');
-var navClose = $('.modal-nav-close-js');
-var containerNav = $('.header__nav-m-c');
+const menu = $('.header__box-menu-js');
+const modalNav = $('.modal-nav-is');
+const navClose = $('.modal-nav-close-js');
+const containerNav = $('.header__nav-m-c');
 
 menu.addEventListener('click', showModalNav);
 navClose.addEventListener('click', showModalNav);

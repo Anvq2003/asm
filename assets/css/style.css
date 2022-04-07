@@ -359,6 +359,12 @@
 /* .header__buy-cart--hover:hover .header__buy-cart {
 	display: block;
 } */
+.icon-cart-cart{
+	display: block;
+}
+.icon-cart-x{
+	display: none;
+}
 
 .header__buy-cart {
 	position: absolute;
@@ -408,22 +414,6 @@
 	top: -23px;
 	right: 13px;
 	z-index: 1;
-}
-.header__buy-cart-top{
-	background-color: #fff;
-	max-width: 43px;
-	height: 43px;
-	display: flex;
-	margin: 0 auto;
-	border-radius: 50%;
-}
-.header__buy-cart-top:hover{
-	background-color: rgba(0, 0, 0, 0.08)
-}
-.header__buy-cart-top-icon{
-	margin: auto;
-    font-size: 21px;
-    color: #666;
 }
 .header__buy-search-heading-none {
 	color: #666;
