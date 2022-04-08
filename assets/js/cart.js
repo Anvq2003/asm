@@ -1,18 +1,17 @@
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
+// var document.querySelector = document.querySelector.bind(document);
+// var document.querySelectorAll = document.querySelectorAll.bind(document);
 
-const boxCart = $('.header__buy-cart--hover');
-const cart = $('.header__buy-cart');
-
+const boxCart = document.querySelector('.header__buy-cart--hover');
+const cart = document.querySelector('.header__buy-cart');
 function showIcons() {
    if (cart.classList.contains('openCart')) {
-      $('.icon-cart-cart').style.display = 'none';
-      $('.icon-cart-x').style.display = 'block';
-      $('.header__buy-search--success__moles').style.display = 'none';
+      document.querySelector('.icon-cart-cart').style.display = 'none';
+      document.querySelector('.icon-cart-x').style.display = 'block';
+      document.querySelector('.header__buy-search--success__moles').style.display = 'none';
    } else {
-      $('.icon-cart-cart').style.display = 'block';
-      $('.icon-cart-x').style.display = 'none';
-      $('.header__buy-search--success__moles').style.display = 'block';
+      document.querySelector('.icon-cart-cart').style.display = 'block';
+      document.querySelector('.icon-cart-x').style.display = 'none';
+      document.querySelector('.header__buy-search--success__moles').style.display = 'block';
    }
 }
 function showHideCart() {
@@ -46,9 +45,9 @@ var result = 0;
 var id = 0;
 var nf = Intl.NumberFormat('ja-JP');
 
-const btns = $$('.product__img-cart');
-const list = $('.header__buy-search--success')
-const totalMoney = $('.header__success-total-price')
+const btns = document.querySelectorAll('.product__img-cart');
+const list = document.querySelector('.header__buy-search--success')
+const totalMoney = document.querySelector('.header__success-total-price')
 
 
 btns.forEach((button) => {
@@ -65,8 +64,8 @@ btns.forEach((button) => {
 
       btnItem.style.display = 'none';
       product.querySelector('.product__img__more-success').classList.add('active');
-      $('.header__buy-search--none').style.display = 'none';
-      $('.header__buy-search-heading').style.display = 'block';
+      document.querySelector('.header__buy-search--none').style.display = 'none';
+      document.querySelector('.header__buy-search-heading').style.display = 'block';
 
       var check = true;
       for (var i of listProduct) {
@@ -88,9 +87,9 @@ function sum() {
 }
 
 function deleteItem() {
-   const delCarts = $$('.success__product-close');
-   const minuss = $$('.prices-amount-minus');
-   const adds = $$('.prices-amount-add');
+   const delCarts = document.querySelectorAll('.success__product-close');
+   const minuss = document.querySelectorAll('.prices-amount-minus');
+   const adds = document.querySelectorAll('.prices-amount-add');
 
    delCarts.forEach((button, index) => {
       var minus = minuss[index];
@@ -133,7 +132,7 @@ function deleteItem() {
 
 // Hàm hiển thị lại các nút giỏ hàng khi ẩn
 function showCart(name) {
-   const product = $$('.product')
+   const product = document.querySelectorAll('.product')
    for (var i = 0; i < product.length; i++) {
       if (product[i].querySelector('.product__info-name').innerText === name) {
          product[i].querySelector('.product__img-cart').style.display = 'block';
@@ -169,18 +168,18 @@ function loadList() {
       `
    }
 
-   $('.header__buy-search--success__moles').innerText = count;
-   $('.header__buy-search-heading-amount').innerText = count;
+   document.querySelector('.header__buy-search--success__moles').innerText = count;
+   document.querySelector('.header__buy-search-heading-amount').innerText = count;
    if (listProduct.length < 1) {
-      $('.header__buy-search--success__moles').style.display = 'none';
-      $('.header__buy-search--none').style.display = 'block';
-      $('.header__success-control').style.display = 'none';
-      $('.header__buy-search-heading').style.display = 'none';
+      document.querySelector('.header__buy-search--success__moles').style.display = 'none';
+      document.querySelector('.header__buy-search--none').style.display = 'block';
+      document.querySelector('.header__success-control').style.display = 'none';
+      document.querySelector('.header__buy-search-heading').style.display = 'none';
    } else {
-      $('.header__buy-search--success__moles').style.display = 'block';
-      $('.header__buy-search-heading').style.display = 'block';
-      $('.header__buy-search--none').style.display = 'none';
-      $('.header__success-control').style.display = 'block';
+      document.querySelector('.header__buy-search--success__moles').style.display = 'block';
+      document.querySelector('.header__buy-search-heading').style.display = 'block';
+      document.querySelector('.header__buy-search--none').style.display = 'none';
+      document.querySelector('.header__success-control').style.display = 'block';
    }
 }
 
@@ -192,7 +191,7 @@ function resetCart() {
    deleteItem()
    showIcons()
 }
-const showCart2 = $$('.product__img__more-success')
+const showCart2 = document.querySelectorAll('.product__img__more-success')
 showCart2.forEach(item => {
    item.addEventListener('click', () => {
       if (!cart.classList.value.includes('openCart')) {
@@ -240,16 +239,16 @@ showCart2.forEach(item => {
 //       const icon = icons[type];
 //       const delay = (duration / 1000).toFixed(2);
 
-//       toast.classList.add("toast", `toast--${type}`);
-//       toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+//       toast.classList.add("toast", `toast--document.querySelector{type}`);
+//       toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s document.querySelector{delay}s forwards`;
 
 //       toast.innerHTML = `
 //                      <div class="toast__icon">
-//                          <i class="${icon}"></i>
+//                          <i class="document.querySelector{icon}"></i>
 //                      </div>
 //                      <div class="toast__body">
-//                          <h3 class="toast__title">${title}</h3>
-//                          <p class="toast__msg">${message}</p>
+//                          <h3 class="toast__title">document.querySelector{title}</h3>
+//                          <p class="toast__msg">document.querySelector{message}</p>
 //                      </div>
 //                      <div class="toast__close">
 //                          <i class="fas fa-times"></i>

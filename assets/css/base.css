@@ -150,7 +150,6 @@ html {
 	margin-bottom: 50px;
 }
 
-
 /* Sản phẩm */
 .product {
 	position: relative;
@@ -293,9 +292,13 @@ html {
 	margin: 4px 12px 6px;
 	cursor: pointer;
 	z-index: 2;
+	text-transform: uppercase;
 }
 .product__info-name:hover {
 	color: var(--primary-color);
+}
+.name-description{
+	text-transform: uppercase;
 }
 .name-description:hover {
 	color: var(--primary-color);

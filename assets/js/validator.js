@@ -5,7 +5,6 @@ const ipElement = $$('.form-control')
 const formElement = $('.form-submit')
 var check = false;
 var information;
-
 formElement.addEventListener('click', e => {
    e.preventDefault();
    ipElement.forEach((ip, index) => {
