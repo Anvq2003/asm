@@ -1,35 +1,3 @@
-$(document).ready(function () {
-   $('.slicks').slick({
-      slidesToShow: 4,
-      slidesToScroll: 2,
-      infinite: true,
-      arrows: true,
-      prevArrow: '<i class="slick-iconArrow slick-iconprevArrow fa-solid fa-angle-left"></i>',
-      nextArrow: '<i class="slick-iconArrow slick-iconnextArrow fa-solid fa-angle-right"></i>',
-      autoplay: true,
-      autoplaySpeed: 2500,
-      responsive: [
-         {
-            breakpoint: 1024,
-            settings: {
-               slidesToShow: 4,
-            }
-         },
-         {
-            breakpoint: 740,
-            settings: {
-               slidesToShow: 2,
-            }
-         },
-         {
-            breakpoint: 480,
-            settings: {
-               slidesToShow: 2,
-            }
-         }
-      ]
-   });
-})
 
 $(document).ready(function () {
    $('.container__list-img').slick({
@@ -52,9 +20,10 @@ $(document).ready(function () {
             }
          },
          {
-            breakpoint: 740,
+            breakpoint: 769,
             settings: {
                slidesToShow: 1,
+               arrows: false
             }
          },
          {
@@ -67,5 +36,39 @@ $(document).ready(function () {
          }
       ]
    })
+})
+
+// slick sản phẩm
+$(document).ready(function () {
+   $('.slicks').slick({
+      slidesToShow: 4,
+      slidesToScroll: 2,
+      infinite: true,
+      arrows: true,
+      prevArrow: '<i class="slick-iconArrow slick-iconprevArrow fa-solid fa-angle-left"></i>',
+      nextArrow: '<i class="slick-iconArrow slick-iconnextArrow fa-solid fa-angle-right"></i>',
+      autoplay: true,
+      autoplaySpeed: 2500,
+      responsive: [
+         {
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 4,
+            }
+         },
+         {
+            breakpoint: 769,
+            settings: {
+               slidesToShow: 3,
+            }
+         },
+         {
+            breakpoint: 375,
+            settings: {
+               slidesToShow: 2,
+            }
+         }
+      ]
+   });
 })
 

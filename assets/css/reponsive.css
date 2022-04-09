@@ -13,13 +13,21 @@
 /* mobile and tablet */
 @media (max-width: 63.9375em) {
 	/* nav */
+	.product{
+		min-height: 0;
+	}
 	.header__nav,
 	.header__buy-box-user,
 	.header__buy-box-search {
 		display: none;
 	}
 	.header__box-logo {
-		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.header__buy{
+		margin-left: 0;
 	}
 	.modal-nav {
 		position: fixed;
@@ -111,13 +119,13 @@
 		font-size: 3rem;
 	}
 	.service-content-heading {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		margin: 4px 0;
 	}
 	.service-content-subheading {
 		font-size: 1rem;
 		color: #a6a6a6;
-		margin: 6px 0;
+		margin: 0;
 		line-height: 12px;
 	}
 	.name-description {
@@ -127,16 +135,49 @@
 		height: 140px;
 		width: auto;
 	}
+	/* hightline */
+	.highlight-item{
+		height: 182px;
+	}
+	.highlight__heading{
+		font-size: 2.5rem;
+    line-height: 2.8rem;
+    margin: 1.4rem 0;
+	}
+	.highlight__subheading{
+		font-size: 1.4rem;
+		line-height: 1.5rem;
+		padding: 0 0 0.8rem;
+	}
+	.highlight__btn{
+    font-size: 1rem;
+	}
+	/* sự kiện */
+	.new__box-img{
+		height: 95px;
+	}
 	/* Footter */
 	.footer__logo {
 		margin-bottom: 50px;
 	}
+	/* Back to top */
+	.back-to-top{
+		width: 40px;
+    	height: 40px;
+	}
 }
 /* Mobile: width < 740px */
 @media (max-width: 46.1875em) {
+	/* header */
+	.header-box{
+		height: 50px;
+	}
+	.header__logo{
+		width: 100px !important;
+	}
 	/* Dịch vụ */
 	.service-box-icon {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		padding-left: 2rem;
 	}
 	.footer__logo,
@@ -154,5 +195,11 @@
 	}
 	.footer__connection-list {
 		justify-content: center;
+	}
+	.highlight-item{
+		height: 174px;
+	}
+	.new__box-img{
+		height: 162px;
 	}
 }

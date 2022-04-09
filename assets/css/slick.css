@@ -87,4 +87,6 @@
    transform: translateY(-50%);
    transition: transform 0.3 linear;
 }
-
+@media (max-width: 63.9375em) {
+   
+}

@@ -14,6 +14,7 @@ function showIcons() {
       document.querySelector('.header__buy-search--success__moles').style.display = 'block';
    }
 }
+
 function showHideCart() {
    cart.classList.toggle('openCart');
 }
@@ -24,7 +25,6 @@ boxCart.addEventListener('click', () => {
 });
 
 cart.addEventListener('click', (e) => e.stopPropagation())
-
 function addCart() {
    if (!cart.classList.value.includes('openCart')) {
       cart.classList.add('openCart');
@@ -41,7 +41,6 @@ function products(classProduct, img, name, price) {
 
 var listProduct = [];
 var count = 0;
-var result = 0;
 var id = 0;
 var nf = Intl.NumberFormat('ja-JP');
 
@@ -73,7 +72,7 @@ btns.forEach((button) => {
       }
 
       if (check == true) {
-         listProduct.push(new products(classProduct, img, name, price));
+         listProduct.unshift(new products(classProduct, img, name, price));
       }
 
       resetCart();
@@ -81,7 +80,7 @@ btns.forEach((button) => {
 })
 
 function sum() {
-   result = listProduct.reduce((a, b) => a + (Number(b.price.replace(/,/g, '')) * b.amount), 0)
+   var result = listProduct.reduce((a, b) => a + (Number(b.price.replace(/,/g, '')) * b.amount), 0)
    totalMoney.innerHTML = `${nf.format(result)} đ`
    result = 0;
 }
@@ -142,22 +141,22 @@ function showCart(name) {
 }
 
 function loadList() {
-   for (var i = (listProduct.length - 1); i >= 0; i--) {
-      list.innerHTML += `
-      <div class="${listProduct[i].classProduct}">
+   list.innerHTML = listProduct.map((product) => {
+      return `
+      <div class="${product.classProduct}">
          <div class="success__product">
             <div class="success__product-box-img">
-               <img class="success__product-img" src="${listProduct[i].img}" alt="">
+               <img class="success__product-img" src="${product.img}" alt="">
             </div>
             <div class="success__product-info">
-            <div class="success-info-name">${listProduct[i].name}</div>
+            <div class="success-info-name">${product.name}</div>
                <div class="success-info-prices">
                   <div class="prices-amount-box">
                      <input class="prices-amount-minus prices-amount-btn" type="button" value="-">
-                     <span class="prices-amount">${listProduct[i].amount}</span>
+                     <span class="prices-amount">${product.amount}</span>
                      <input class="prices-amount-add prices-amount-btn" type="button" value="+">
                   </div>
-                  <span class="prices-price">${listProduct[i].price} <u>đ</u></span>
+                  <span class="prices-price">${product.price} <u>đ</u></span>
                </div>
             </div>
             <div class="success__product-close">
@@ -166,7 +165,7 @@ function loadList() {
          </div>
       </div>
       `
-   }
+   })
 
    document.querySelector('.header__buy-search--success__moles').innerText = count;
    document.querySelector('.header__buy-search-heading-amount').innerText = count;
@@ -191,6 +190,8 @@ function resetCart() {
    deleteItem()
    showIcons()
 }
+
+// click vào thanh xem thông tin khi đã thêm vào giỏ hàng
 const showCart2 = document.querySelectorAll('.product__img__more-success')
 showCart2.forEach(item => {
    item.addEventListener('click', () => {
@@ -201,60 +202,4 @@ showCart2.forEach(item => {
    })
 })
 
-// // Toast message
-// function showSuccessToast() {
-//    toast({
-//       title: "Thành công !",
-//       message: "Bạn đã thêm sản phẩm vào giỏ hàng.",
-//       type: "success",
-//       duration: 3000
-//    });
-// }
-
-// // Toast function
-// function toast({ title = "", message = "", type = "info", duration = 3000 }) {
-//    const main = document.getElementById("toast");
-//    if (main) {
-//       const toast = document.createElement("div");
-
-//       // Auto remove toast
-//       const autoRemoveId = setTimeout(function () {
-//          main.removeChild(toast);
-//       }, duration + 1000);
-
-//       // Remove toast when clicked
-//       toast.onclick = function (e) {
-//          if (e.target.closest(".toast__close")) {
-//             main.removeChild(toast);
-//             clearTimeout(autoRemoveId);
-//          }
-//       };
-
-//       const icons = {
-//          success: "fas fa-check-circle",
-//          info: "fas fa-info-circle",
-//          warning: "fas fa-exclamation-circle",
-//          error: "fas fa-exclamation-circle"
-//       };
-//       const icon = icons[type];
-//       const delay = (duration / 1000).toFixed(2);
-
-//       toast.classList.add("toast", `toast--document.querySelector{type}`);
-//       toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s document.querySelector{delay}s forwards`;
-
-//       toast.innerHTML = `
-//                      <div class="toast__icon">
-//                          <i class="document.querySelector{icon}"></i>
-//                      </div>
-//                      <div class="toast__body">
-//                          <h3 class="toast__title">document.querySelector{title}</h3>
-//                          <p class="toast__msg">document.querySelector{message}</p>
-//                      </div>
-//                      <div class="toast__close">
-//                          <i class="fas fa-times"></i>
-//                      </div>
-//                  `;
-//       main.appendChild(toast);
-//    }
-// }
 

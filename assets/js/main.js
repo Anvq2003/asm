@@ -1,5 +1,23 @@
 var $ = document.querySelector.bind(document);
 var $$ = document.querySelectorAll.bind(document);
+// search 
+
+const searchElement = document.querySelector('.header__buy-search--hover');
+const subSearch = document.querySelector('.header__buy-search');
+function showSearch() {
+   subSearch.classList.toggle('openSearch');
+}
+searchElement.onclick = (e) => {
+   showSearch()
+   if (subSearch.classList.contains('openSearch')) {
+      document.querySelector('.icon-buy-search').style.display = 'none'
+      document.querySelector('.icon-buy-search-x').style.display = 'block'
+   } else {
+      document.querySelector('.icon-buy-search').style.display = 'block'
+      document.querySelector('.icon-buy-search-x').style.display = 'none'
+   }
+}
+subSearch.onclick = e => e.stopPropagation();
 // nav
 window.addEventListener('scroll', nav);
 var navElementBox = $('.header-box');
@@ -15,7 +33,6 @@ function nav() {
       logoElement.style.width = '154px';
    }
 }
-
 
 // modal user
 const userElement = $('.header__buy-box-js');

@@ -265,14 +265,29 @@
 	height: 42px;
 	width: 42px;
 	line-height: 42px;
+	animation: showIcon .5s ease;
 }
 .buy-icon:hover {
 	color: var(--primary-color);
 	transition: 500ms;
 }
 /* box search */
-.header__buy-search--hover:hover .header__buy-search {
+
+.icon-buy-search{
 	display: block;
+}
+.icon-buy-search-x{
+	display: none;
+}
+@keyframes showIcon {
+	0%{
+		transform: translateY(-15px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 .header__buy-search {
 	position: absolute;
@@ -286,6 +301,9 @@
 	transform-origin: calc(100% - 50px) top;
 	animation: opacity 0.2s ease;
 	box-shadow: 2px 2px 8px #555;
+}
+.header__buy-search.openSearch{
+	display: block;
 }
 .header__buy-search::after {
 	content: "";
