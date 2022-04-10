@@ -225,7 +225,8 @@
 					</div>
 
 	            <div class="registration__content__right l-7">
-	               <form action="" method="POST" class="form" id="form-1">
+
+	               <form action="" method="POST" class="form active" id="form-1">
 							<h3 class="heading">Đăng ký thành viên </h3>
 							<div class="spacer"></div>
 
@@ -254,12 +255,36 @@
 							</div>
 					  
 							<button class="form-submit">Đăng ký</button>
-						 </form>
-					  
+						</form>
+
+						<!-- Khi đăng nhập thành công -->
+						<div class="form__sucsser">
+							<div class="form__sucsser__heading">
+								YOUR ACCOUNT HAS BEEN CREATED!
+							</div>
+							<p class="form__sucsser__text">
+								Thank you for registering with Your Store!
+							</p>
+							<p class="form__sucsser__text">
+								You will be notified by e-mail once your account has been activated by the store owner.
+							</p>
+							<p class="form__sucsser__text">
+								If you have ANY questions about the operation of this online shop, please contact the store owner.
+							</p>
+							<a class="form__sucsser-link" href="./index.html"><button class="btn btn-form__sucsser">Continue</button></a>
+						</div>
+
 	            </div>
             </div>
          </div>
       </div>
+
+		<!-- modal form -->
+		<div class="modal__form modal__form-js">
+			<dic class="modal__form__box-icon">
+				<i class="form-icon-load fa-solid fa-spinner"></i>
+			</dic>
+		</div>
 
       <!-- Begin footer -->
 		<footer class="footer">

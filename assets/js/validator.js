@@ -5,7 +5,24 @@ const ipElement = $$('.form-control')
 const formElement = $('.form-submit')
 var check = false;
 var information;
+
+// active
+function activeform() {
+   $('.form').classList.remove('active');
+   $('.form__sucsser').classList.add('active');
+}
+
+// modal form
+function showLoadForm() {
+   $('.modal__form-js').classList.toggle('openForm')
+}
+
+// click btn
 formElement.addEventListener('click', e => {
+   showLoadForm();
+   setTimeout(() => {
+      showLoadForm()
+   }, 700);
    e.preventDefault();
    ipElement.forEach((ip, index) => {
       var groupElement = ip.parentElement
@@ -19,24 +36,22 @@ formElement.addEventListener('click', e => {
       if (!ip.value.trim()) {
          groupElement.classList.add('invalid')
          error.innerText = 'Vui lòng nhập trường này !';
-      }
-
-   })
-
-   for (var i = 0; i < ipElement.length; i++) {
-      if (ipElement[i].value.trim()) {
-         information = {
-            fullname: ipElement[0].value,
-            email: ipElement[1].value,
-            password: ipElement[2].value,
-            password_confirmation: ipElement[3].value
+      } else {
+         activeform()
+         for (var i = 0; i < ipElement.length; i++) {
+            information = {
+               fullname: ipElement[0].value,
+               email: ipElement[1].value,
+               password: ipElement[2].value,
+               password_confirmation: ipElement[3].value
+            }
          }
       }
-   }
+   })
    console.log(information)
 })
 
-
+// check from
 ipElement.forEach((ip) => {
 
    ip.addEventListener('blur', (e) => {
@@ -86,4 +101,6 @@ ipElement.forEach((ip) => {
       }
    })
 })
+
+
 

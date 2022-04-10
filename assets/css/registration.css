@@ -63,15 +63,46 @@
    justify-content: center;
    background: #fff;
 }
+/* form--sucsser */
+.form__sucsser{
+   height: 538px;
+   padding: 142px 48px;
+   color: #333;
+   display: none;
+}
+.form__sucsser__heading{
+   font-size: 3.3rem;
+   margin-bottom: 40px;
+   font-weight: 500;
+}
+.form__sucsser__text{
+   font-size: 1.4rem;
+   margin-bottom: 10px;
+   font-weight: 400;
+}
+.btn-form__sucsser{
+   float: right;
+   margin: 12px 0;
+}
+.form__sucsser-link{
+   text-decoration: none;
+   color: var(--white-color);
+}
 
+/* form */
 .form {
    min-height: 100px;
    padding: 12px 24px 32px;
    margin: 24px;
    align-self: center;
    width: 80%;
+   display: none;
 }
 
+.form.active,
+.form__sucsser.active{
+   display: block;
+}
 .form .heading {
    font-size: 3rem;
    text-align: center;
@@ -155,4 +186,36 @@
 
 .spacer {
    margin-top: 36px;
+}
+
+/* modal form */
+.modal__form{
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: none;
+   z-index: 3;
+}
+.modal__form.openForm{
+   display: flex;
+   background-color: #fff;
+}
+.modal__form__box-icon{
+   margin: auto;
+}
+.form-icon-load{
+   color:var(--primary-color);
+   animation: formIcon .9s linear infinite;
+   font-size: 40px;
+}
+
+@keyframes formIcon {
+   0%{
+      transform: rotate(0);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
 }
