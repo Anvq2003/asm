@@ -24,7 +24,7 @@ formElement.addEventListener('click', e => {
       showLoadForm()
    }, 700);
    e.preventDefault();
-   ipElement.forEach((ip, index) => {
+   ipElement.forEach((ip) => {
       var groupElement = ip.parentElement
       var error = groupElement.querySelector('.form-message');
 
@@ -48,7 +48,9 @@ formElement.addEventListener('click', e => {
          }
       }
    })
-   console.log(information)
+   if (information) {
+      console.log(information)
+   }
 })
 
 // check from
