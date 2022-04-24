@@ -1,4 +1,4 @@
-
+// slicer
 $(document).ready(function () {
    $('.container__list-img').slick({
       slidesToShow: 1,
